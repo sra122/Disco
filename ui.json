@@ -1,0 +1,12 @@
+{
+  "defaultEntryPoint" : "index.html",
+  "namespace"         : "Disco",
+  "menuEntries"       : [
+    {
+      "label": "Authentifizierung",
+      "menu": "system/markets/Disco",
+      "urlKey": "itools",
+      "entryPoint": "index.html?action=itools"
+    }
+  ]
+}

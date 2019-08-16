@@ -1,0 +1,11 @@
+{
+  "marketplaceName"   : {"de": "Disco - i-ways","en": "Disco - i-ways"},
+  "license"           : "AGPL-3.0",
+  "price"             : 0.00,
+  "shortDescription"  : {
+    "de": "Disco - i-ways",
+    "en": "Disco - i-ways"
+  },
+  "categories"        : ["3881"],
+  "keywords"          : ["plentymarkets", "plugins", "layout", "template", "disco"]
+}

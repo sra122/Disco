@@ -1,0 +1,47 @@
+{
+  "stats-view": {
+    "deleteMapping":  "Alle Zuordnungen entfernen",
+    "deleteMappingToolTip": "Löscht alle Kategorienzuordnungen zwischen Plentymarkets und PANDA.BLACK",
+    "refresh": "Aktualisieren",
+    "refreshToolTip": "Laden / Aktualisieren verfügbarer Panda Black-Kategorien",
+    "validation": "Überprüfen die Produkte",
+    "pandaBlackCategoryTitle": "PANDA.BLACK Kategorieauswahl",
+    "plentyMarketCategoryTitle": "Plentymarkets Kategorieauswahl",
+    "requiredAttributesTitle": "Pflichtattribute für die ausgewählte Kategorie",
+    "selectPandaBlackMessage": "PANDA.BLACK Kategorie auswählen",
+    "selectPlentyMarketMessage": "Ordnen Sie die entsprechende plentymarkets Kategorie hinzu",
+    "attributeMapping": "Kategoriezuordnung",
+    "attributeMappingButton": "Speichern",
+    "deleteCategoryMapping": "Kategorienzuordnung löschen",
+    "productsNotSentMessage": "Produkte werden nicht an PANDA.BLACK gesendet",
+    "property" : "Eigenschaften"
+  },
+  "itool": {
+    "token-expiration": "Ihr Token läuft an folgendem Datum aus: ",
+    "authenticate-plugin": "Bitte authentifizieren Sie sich bei Panda Black.",
+    "authenticate-button": "Authentifizieren"
+  },
+  "mapping": {
+    "category-selection": "1.Kategorieauswahl",
+    "category-selection-placeholder": "Bitte wählen Sie eine PANDA.BLACK Kategorie aus.",
+    "property-mapping": "2.Eigenschaftszuordnung",
+    "property-mapping-placeholder": "Eigenschaftszuordnung",
+    "edit-propertyValues": " Eigenschaftswerte zuordnen",
+    "map-propertyValues": "Bitte ordnen Sie die Eigenschaftswerte zu.",
+    "map-propertyValues-placeholder": "Eigenschaftswert auswählen",
+    "save-propertyValues": "Abspeichern",
+    "create-automatically": "Automatisch erstellen",
+    "pb-properties": "PANDA.BLACK Eigenschaften",
+    "pm-properties": "Plentymarkets Eigenschaften zuordnen",
+    "pb-propertyValues": "Eigenschaftswerte von PANDA.BLACK",
+    "pm-propertyValues": "Plentymarkets Eigenschaftswerte zuordnen"
+  },
+  "status": {
+    "variationId": "Varianten-ID",
+    "missing-properties": "Fehlende Eigenschaften",
+    "stock": "Verfügbarer Bestand",
+    "Asin": "ASIN vorhanden",
+    "related-Properties": "Eigenschaftszuordnung vorhanden",
+    "admin-notification": "Wichtige Benachrichtigungen"
+  }
+}
