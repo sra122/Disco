@@ -135,7 +135,6 @@ class ContentController extends Controller
                     'sku' => (count($variation['variationSkus']) > 0) ? $this->getSKUDetails($variation['variationSkus']) : null,
                     'ean' => (count($ean) > 0) ? implode(',', $ean) : null
                 );
-                $this->exportData[$variation['id']]['attributes'] = $this->attributesInfo($variation['properties'], $categoryId);
             }
         } while(!$resultItems->isLastPage());
     }
@@ -204,7 +203,6 @@ class ContentController extends Controller
     private function productStatus($productDetails)
     {
         $errorProductAttributes = [];
-        $missingAttributeProducts = [];
         $errorProducts = [];
         foreach($productDetails['exportData'] as $key => $productDetail)
         {
@@ -215,25 +213,6 @@ class ContentController extends Controller
                     $errorProducts[$productDetail['product_id']] = ['emptyAttributeProduct'];
                 } else {
                     $errorProducts[$productDetail['product_id']] = array_merge($errorProducts[$productDetail['product_id']], ['emptyAttributeProduct']);
-                }
-
-            } else {
-                $attributes = $this->settings->get(SettingsHelper::ATTRIBUTES)[(int)$productDetail['category']];
-                $count = 0;
-                foreach($attributes as $attributeKey => $attribute) {
-                    if(!array_key_exists($attribute['name'], $productDetail['attributes']) && $attribute['required'] && ($attribute['values'] !== null)) {
-                        if(!in_array($productDetail['product_id'], $missingAttributeProducts)) {
-                            $missingAttributeProducts[$productDetail['product_id']][$count++] = $attribute['name'];
-                            $unfulfilledData = true;
-                        }
-                    }
-                }
-                if(isset($missingAttributeProducts[$productDetail['product_id']])) {
-                    if(!isset($errorProductAttributes[$productDetail['product_id']]) && empty($errorProductAttributes[$productDetail['product_id']])) {
-                        $errorProductAttributes[$productDetail['product_id']] = $missingAttributeProducts[$productDetail['product_id']];
-                    } else {
-                        $errorProductAttributes[$productDetail['product_id']] = array_merge($errorProductAttributes[$productDetail['product_id']], $missingAttributeProducts[$productDetail['product_id']]);
-                    }
                 }
 
             }
