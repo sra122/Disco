@@ -9,7 +9,6 @@ use Plenty\Modules\System\Models\WebstoreConfiguration;
 use Plenty\Modules\Helper\Services\WebstoreHelper;
 use Plenty\Modules\Plugin\Libs\Contracts\LibraryCallContract;
 
-
 /**
  * Class AuthController
  * @package Disco\Controllers
