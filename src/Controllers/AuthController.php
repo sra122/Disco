@@ -3,6 +3,7 @@
 namespace Disco\Controllers;
 
 use Disco\Helpers\SettingsHelper;
+use Plenty\Modules\Order\Referrer\Contracts\OrderReferrerRepositoryContract;
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Modules\System\Models\WebstoreConfiguration;
@@ -91,5 +92,20 @@ class AuthController extends Controller
         }
 
         return [$tokenData['expires_in']];
+    }
+
+
+    public function changeDiscoOrderReferrer(OrderReferrerRepositoryContract $orderReferrerRepositoryContract)
+    {
+        $response = $orderReferrerRepositoryContract->update([
+            'id' => 11,
+            'isEditable'    => true,
+            'backendName' => 'Disco',
+            'name'        => 'Disco',
+            'origin'      => 'plugin',
+            'isFilterable' => true
+            ]);
+
+        return $response;
     }
 }
