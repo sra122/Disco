@@ -46,7 +46,9 @@ class SettingsHelper
         if(count($properties) > 0) {
             $this->settingProperty = $properties[0];
         } else {
-            $this->settingProperty = $this->SettingsRepositoryContract->create('Disco', 'property', [$key => $value]);
+            if(($key !== '') && ($value !== '')) {
+                $this->settingProperty = $this->SettingsRepositoryContract->create('Disco', 'property', [$key => $value]);
+            }
         }
 
         return $this->settingProperty;

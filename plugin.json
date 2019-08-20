@@ -13,5 +13,9 @@
   "dependencies"        : {
     "guzzlehttp/guzzle": "6.2.*"
   },
-  "runOnBuild"          : []
+  "runOnBuild"          : [
+    "Disco\\Migrations\\DiscoCategories",
+    "Disco\\Migrations\\DiscoOrderReferrer",
+    "Disco\\Migrations\\MergeDiscoSettings"
+  ]
 }
