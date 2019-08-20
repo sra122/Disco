@@ -72,7 +72,7 @@ class AuthController extends Controller
         $response = $settingRepositoryContract->find('Disco', 'property');
 
         if(empty($response)) {
-            $response = $settingRepositoryContract->create('Disco', 'property');
+            $response = $settingRepositoryContract->create('Disco', 'property', ['sessionTime' => time()]);
 
             return $response;
         }
