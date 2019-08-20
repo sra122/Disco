@@ -68,23 +68,16 @@ class AuthController extends Controller
 
     public function sessionCreation()
     {
-        $settingRepositoryContract = pluginApp(SettingsRepositoryContract::class);
+        /*$settingRepositoryContract = pluginApp(SettingsRepositoryContract::class);
         $response = $settingRepositoryContract->find('Disco', 'property');
 
         if(empty($response)) {
             $response = $settingRepositoryContract->create('Disco', 'property', ['sessionTime' => time()]);
 
             return $response;
-        }
+        }*/
 
-        $check = [
-            'arrayCount' => count($response),
-            'responseEmpty' => empty($response)
-        ];
-
-        return $check;
-
-        //$this->Settings->set('sessionTime', time());
+        $this->Settings->set('sessionTime', time());
     }
 
     /**
