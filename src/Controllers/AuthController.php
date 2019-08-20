@@ -95,16 +95,19 @@ class AuthController extends Controller
     }
 
 
+    /**
+     * @param OrderReferrerRepositoryContract $orderReferrerRepositoryContract
+     * @return \Plenty\Modules\Order\Referrer\Models\OrderReferrer
+     */
     public function changeDiscoOrderReferrer(OrderReferrerRepositoryContract $orderReferrerRepositoryContract)
     {
         $response = $orderReferrerRepositoryContract->update([
-            'id' => 11,
             'isEditable'    => true,
             'backendName' => 'Disco',
             'name'        => 'Disco',
             'origin'      => 'plugin',
             'isFilterable' => true
-            ]);
+            ], 11.0);
 
         return $response;
     }
