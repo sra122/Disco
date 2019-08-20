@@ -77,7 +77,12 @@ class AuthController extends Controller
             return $response;
         }
 
-        return $response;
+        $check = [
+            'arrayCount' => count($response),
+            'responseEmpty' => empty($response)
+        ];
+
+        return $check;
 
         //$this->Settings->set('sessionTime', time());
     }
