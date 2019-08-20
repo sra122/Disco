@@ -3,6 +3,7 @@
 namespace Disco\Controllers;
 
 use Disco\Helpers\SettingsHelper;
+use Plenty\Modules\Market\Settings\Contracts\SettingsRepositoryContract;
 use Plenty\Modules\Order\Referrer\Contracts\OrderReferrerRepositoryContract;
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
@@ -67,7 +68,13 @@ class AuthController extends Controller
 
     public function sessionCreation()
     {
-        $this->Settings->set('sessionTime', time());
+        $settingRepositoryContract = pluginApp(SettingsRepositoryContract::class);
+
+        $properties = $settingRepositoryContract->find('Disco', 'property');
+
+        return $properties;
+
+        //$this->Settings->set('sessionTime', time());
     }
 
     /**
