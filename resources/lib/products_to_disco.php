@@ -2,13 +2,12 @@
 
 $client = new \GuzzleHttp\Client();
 
-
 $res = $client->request(
     'POST',
-    'https://pb.i-ways-network.org/product-api/products',
+    'https://addnow-backend-staging.i-ways-network.org/product-api/products',
     [
         'headers' => [
-            'APP-ID' => 'Lr7u9w86bUL5qsg7MJEVut8XYsqrZmTTxM67qFdH89f4NYQnHrkgKkMAsH9YLE4tjce4GtPSqrYScSt7w558USrVgXHB',
+            'APP-ID' => 'trnE6CjVkjQuUQOyujzrkjkTiMrWxSOaUhSqhaGQj6ikDk5XiNd03XPYZ7q5OqiUEbNWHAHx2kQ8djnKRqZoa0vdYGei2',
             'API-AUTH-TOKEN' => SdkRestApi::getParam('token')
         ],
         'form_params' => [
