@@ -18,7 +18,7 @@ class DiscoRouteServiceProvider extends RouteServiceProvider
         $router->get('markets/disco/auth/authentication', 'Disco\Controllers\AuthController@getAuthentication');
 
         $api->version(['v1'], ['middleware' => ['oauth']], function ($router) {
-            $router->get('markets/disco/login-url', 'Disco\Controllers\AuthController@changeDiscoOrderReferrer');
+            $router->get('markets/disco/login-url', 'Disco\Controllers\AuthController@getLoginUrl');
             $router->post('markets/disco/session', 'Disco\Controllers\AuthController@sessionCreation');
             $router->get('markets/disco/expire-time', 'Disco\Controllers\AuthController@tokenExpireTime');
 
