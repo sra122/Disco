@@ -26,6 +26,8 @@ class DiscoRouteServiceProvider extends RouteServiceProvider
 
             //Disco Category as Property
             $router->post('markets/disco/create-category-as-property', 'Disco\Controllers\PropertyController@createCategoryAsProperty');
+
+            $router->post('markets/disco/send-products', 'Disco\Controllers\ContentController@sendProductDetails');
         });
     }
 }
