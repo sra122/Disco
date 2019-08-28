@@ -62,10 +62,10 @@ class ContentController extends Controller
             ]
         ]);
 
-        $itemRepository->setFilters([
+        /*$itemRepository->setFilters([
             'referrerId' => (int)$this->settings->get(SettingsHelper::ORDER_REFERRER),
             $filterVariation => time()-(3600*$hours)
-        ]);
+        ]);*/
 
         $resultItems = $itemRepository->search();
 
@@ -111,7 +111,7 @@ class ContentController extends Controller
                 }
                 $textArray = $variation['item']->texts;
                 $variation['texts'] = $textArray->toArray();
-                $categoryId = $this->categoryIdFromSettingsRepo($variation['properties']);
+                $categoryId = '';//$this->categoryIdFromSettingsRepo($variation['properties']);
                 $this->exportData[$variation['id']] = array(
                     'parent_product_id' => $variation['mainVariationId'],
                     'product_id' => $variation['id'],
@@ -145,7 +145,7 @@ class ContentController extends Controller
      */
     public function productDetails($hours = 1)
     {
-        $filterVariations = ['updatedBetween', 'relatedUpdatedBetween'];
+        $filterVariations = ['updatedBetween'/*, 'relatedUpdatedBetween'*/];
         foreach($filterVariations as $filterVariation)
         {
             $this->productsExtraction($filterVariation, $hours);
@@ -188,16 +188,18 @@ class ContentController extends Controller
         $mapping = pluginApp(MappingController::class);
 
         $productDetails = $this->productDetails($hours);
-        $productStatus = $this->productStatus($productDetails);
+        //$productStatus = $this->productStatus($productDetails);
 
-        if($hours === 24) {
+        $app->authenticate('products_to_disco', null, $productDetails['exportData']);
+
+        /*if($hours === 24) {
             if(!empty($productStatus['validProductDetails'])) {
                 $validProductsWithSKU = $this->generateSKU($productStatus['validProductDetails']);
                 $app->authenticate('products_to_disco', null, $validProductsWithSKU);
             }
-        }
-        $productStatus['unfulfilledProducts']['admin'] = $mapping->updateNotifications()['admin'];
-        $this->settings->set(SettingsHelper::NOTIFICATION, $productStatus['unfulfilledProducts']);
+        }*/
+        //$productStatus['unfulfilledProducts']['admin'] = $mapping->updateNotifications()['admin'];
+        //$this->settings->set(SettingsHelper::NOTIFICATION, $productStatus['unfulfilledProducts']);
     }
 
     private function productStatus($productDetails)
